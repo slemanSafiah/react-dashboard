@@ -6,7 +6,7 @@ function Card() {
     <div className="card">
       <div className="card-image">
         <img
-          src="static/images/avatar/2.png"
+          src="/static/images/avatar/1.png"
           alt="logo"
           width="40px"
           height="40px"
@@ -17,29 +17,29 @@ function Card() {
           <div className="card-desc-title">Team Members</div>
           <AvatarGroup max={4}>
             <Avatar
-              sx={{ width: 24, height: 24 }}
+              sx={{ width: 20, height: 20 }}
               alt="Remy Sharp"
-              src="/static/images/avatar/2.png"
+              src="/static/images/avatar/1.png"
             />
             <Avatar
-              sx={{ width: 24, height: 24 }}
+              sx={{ width: 20, height: 20 }}
               alt="Travis Howard"
-              src="/static/images/avatar/2.png"
+              src="/static/images/avatar/1.png"
             />
             <Avatar
-              sx={{ width: 24, height: 24 }}
+              sx={{ width: 20, height: 20 }}
               alt="Cindy Baker"
-              src="/static/images/avatar/2.png"
+              src="/static/images/avatar/1.png"
             />
             <Avatar
-              sx={{ width: 24, height: 24 }}
+              sx={{ width: 20, height: 20 }}
               alt="Agnes Walker"
-              src="/static/images/avatar/2.png"
+              src="/static/images/avatar/1.png"
             />
             <Avatar
-              sx={{ width: 24, height: 24 }}
+              sx={{ width: 20, height: 20 }}
               alt="Trevor Henderson"
-              src="/static/images/avatar/2.png"
+              src="/static/images/avatar/1.png"
             />
           </AvatarGroup>
         </Stack>
