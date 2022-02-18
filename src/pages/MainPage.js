@@ -6,6 +6,7 @@ function MainPage() {
     <div className="Main-page">
       <Navbar />
       <Sidebar />
+      <div className="sections"></div>
     </div>
   );
 }
