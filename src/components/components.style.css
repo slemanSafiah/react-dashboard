@@ -213,7 +213,7 @@
 .todo-list {
   color: white;
   width: 100%;
-  height: 300px;
+  height: 301px;
 }
 
 .todo-list-header {
@@ -306,6 +306,49 @@
 .tooltip-task {
   position: relative;
   right: -10px;
+}
+
+.table-section {
+  margin-top: 10px;
+  white-space: nowrap !important;
+  overflow-x: hidden !important;
+  overflow-y: auto;
+  height: 300px;
+}
+
+.table-row {
+  background-color: #35415e;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+.table-title {
+  font-size: 12px;
+  font-weight: lighter;
+  color: white;
+}
+
+.table-cell-data {
+  font-size: 12px;
+  font-weight: lighter;
+  color: #c3c3c3;
+}
+
+.stats-1 {
+  background-color: #4d4b5b;
+  color: #a67350;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.stats-2 {
+  background-color: #39476b;
+  color: #4c62b0;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 /* width */
