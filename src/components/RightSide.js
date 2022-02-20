@@ -1,3 +1,5 @@
+import moment from "moment";
+
 function RightSide() {
   let hours = [6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7];
 
@@ -31,7 +33,9 @@ function RightSide() {
       <div className="right-side-header flex-space-between">
         <div className="right-side-header-title">
           <div className="todo-date">calendar</div>
-          <div>Thursday, 26 Oct</div>
+          <div>
+            {moment().format("dddd")}, {moment().format("Do MMM")}
+          </div>
         </div>
         <div className="calendar-image">
           <img

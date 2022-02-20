@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import SignIn from "./pages/SignIn";
+import { AuthProvider } from "./context/userContext";
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -8,10 +9,12 @@ export default function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/signin" element={<SignIn />} />
-        </Routes>
+        <AuthProvider>
+          <Routes>
+            <Route path="/" element={<SignIn />} />
+            <Route path="/Main-page" element={<MainPage />} />
+          </Routes>
+        </AuthProvider>
       </BrowserRouter>
     </div>
   );

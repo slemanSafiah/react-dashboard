@@ -1,4 +1,5 @@
 import { Add, MoreVert } from "@mui/icons-material";
+import moment from "moment";
 import Task from "./Task";
 
 function TodoList() {
@@ -25,14 +26,16 @@ function TodoList() {
     }
   ];
 
+  const date = Date.now();
+
   return (
     <div className="todo-list">
       <div className="todo-list-header flex-title">
         <div className="todo-left-sec">
           <div className="todo-title">Today To Do List</div>
           <div className="todo-date">
-            <div>Saturday</div>
-            <div>12 Oct 2021</div>
+            <div>{moment().format("dddd")}</div>
+            <div>{moment(date).format("MMM Do YYYY")}</div>
           </div>
         </div>
         <div className="flex-title">
