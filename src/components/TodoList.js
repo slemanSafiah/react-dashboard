@@ -1,30 +1,21 @@
+import { useState, useEffect } from "react";
 import { Add, MoreVert } from "@mui/icons-material";
+import { CircularProgress } from "@mui/material";
 import moment from "moment";
 import Task from "./Task";
+import axios from "axios";
 
 function TodoList() {
-  let tasks = [
-    {
-      task: "task 1 description no one need to know what it is",
-      type: 3
-    },
-    {
-      task: "task 2 description no one need to know what it is",
-      type: 1
-    },
-    {
-      task: "task 3 description no one need to know what it is",
-      type: 2
-    },
-    {
-      task: "task 4 description no one need to know what it is , just wait ",
-      type: 4
-    },
-    {
-      task: "task 4 description no one need to know what it is , just wait ",
-      type: 4
-    }
-  ];
+  const [tasks, setTasks] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    axios.get("http://localhost:5000/getTasks").then((result) => {
+      setTasks(result.data.data);
+      setLoading(false);
+    });
+  }, []);
 
   const date = Date.now();
 
@@ -49,9 +40,20 @@ function TodoList() {
       </div>
 
       <div className="todo-tasks">
-        {tasks.map((task) => (
-          <Task desc={task.task} type={task.type} />
-        ))}
+        {loading ? (
+          <div className="flex-center" style={{ height: "100%" }}>
+            <CircularProgress />
+          </div>
+        ) : tasks.length === 0 ? (
+          <div
+            className="flex-center"
+            style={{ height: "100%", fontSize: "18px" }}
+          >
+            No Tasks Yet ...
+          </div>
+        ) : (
+          tasks.map((task) => <Task desc={task.task} type={task.type} />)
+        )}
       </div>
     </div>
   );

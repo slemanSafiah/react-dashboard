@@ -1,4 +1,5 @@
 import { Line } from "react-chartjs-2";
+import { ArrowUpward } from "@mui/icons-material";
 import Chart from "chart.js/auto";
 
 function LineChart() {
@@ -8,6 +9,9 @@ function LineChart() {
 
   return (
     <div className="line-chart">
+      <div className="line-chart-title ">
+        Weekly Increase <ArrowUpward color="success" fontSize="small" />
+      </div>
       <Line
         data={{
           labels: labels,
@@ -24,6 +28,11 @@ function LineChart() {
         }}
         options={{
           maintainAspectRatio: true,
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
           legend: {
             labels: {
               fontSize: 10

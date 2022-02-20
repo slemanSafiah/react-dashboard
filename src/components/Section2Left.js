@@ -1,56 +1,19 @@
+import { useState, useEffect } from "react";
+import { CircularProgress } from "@mui/material";
+import axios from "axios";
 import RowData from "./RowData";
 
 function Section2Left() {
-  let tableData = [
-    {
-      image: "/static/images/avatar/1.png",
-      name: "company 1",
-      created: "Thu, 26 Oct",
-      reporter: "sleman",
-      due: "Thu, 26 Oct",
-      stats: "In Progress"
-    },
-    {
-      image: "/static/images/avatar/1.png",
-      name: "company 2",
-      created: "Thu, 26 Oct",
-      reporter: "sleman",
-      due: "Thu, 26 Oct",
-      stats: "Open"
-    },
-    {
-      image: "/static/images/avatar/1.png",
-      name: "company 3",
-      created: "Thu, 26 Oct",
-      reporter: "sleman",
-      due: "Thu, 26 Oct",
-      stats: "In Progress"
-    },
-    {
-      image: "/static/images/avatar/1.png",
-      name: "company 4",
-      created: "Thu, 26 Oct",
-      reporter: "sleman",
-      due: "Thu, 26 Oct",
-      stats: "Open"
-    },
-    {
-      image: "/static/images/avatar/1.png",
-      name: "company 3",
-      created: "Thu, 26 Oct",
-      reporter: "sleman",
-      due: "Thu, 26 Oct",
-      stats: "In Progress"
-    },
-    {
-      image: "/static/images/avatar/1.png",
-      name: "company 4",
-      created: "Thu, 26 Oct",
-      reporter: "sleman",
-      due: "Thu, 26 Oct",
-      stats: "Open"
-    }
-  ];
+  const [tableData, setTableData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    axios.get("http://localhost:5000/getProjects").then((result) => {
+      setTableData(result.data.data);
+      setLoading(false);
+    });
+  }, []);
 
   let tableColTitle = [
     "Recent Projects",
@@ -73,9 +36,20 @@ function Section2Left() {
         ))}
       </div>
       <div className="table-section">
-        {tableData.map((rowData) => (
-          <RowData data={rowData} />
-        ))}
+        {loading ? (
+          <div className="flex-center" style={{ height: "100%" }}>
+            <CircularProgress />
+          </div>
+        ) : tableData.length === 0 ? (
+          <div
+            className="flex-center"
+            style={{ height: "100%", fontSize: "18px" }}
+          >
+            No Tasks Yet ...
+          </div>
+        ) : (
+          tableData.map((rowData) => <RowData data={rowData} />)
+        )}
       </div>
     </div>
   );

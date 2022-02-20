@@ -58,7 +58,8 @@ function BarChart() {
             legend: {
               labels: {
                 font: 5
-              }
+              },
+              display: false
             }
           },
           maintainAspectRatio: true,
