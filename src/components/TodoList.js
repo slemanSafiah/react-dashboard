@@ -21,7 +21,7 @@ function TodoList() {
     "useQueryString":true
     }
     }).then((result) => {
-      setTasks(result.data.data);
+      setTasks(result.data);
       setLoading(false);
     });
   }, []);
