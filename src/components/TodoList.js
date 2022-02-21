@@ -11,7 +11,16 @@ function TodoList() {
 
   useEffect(() => {
     setLoading(true);
-    axios.get("http://localhost:5000/getTasks").then((result) => {
+    axios({
+    "method":"GET",
+    "url":"https://task-back.p.rapidapi.com/getTasks",
+    "headers":{
+    "content-type":"application/octet-stream",
+    "x-rapidapi-host":"task-back.p.rapidapi.com",
+    "x-rapidapi-key":"2bbd69f446msh82d4010a1c67780p173d5ejsnb668c89710b8",
+    "useQueryString":true
+    }
+    }).then((result) => {
       setTasks(result.data.data);
       setLoading(false);
     });
